@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APUNUSA – Jasa Pengadaan & General Supply Indonesia</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a2e6e;
+  --navy-mid:#243680;
+  --navy-light:#e8ecf8;
+  --red:#cc2b2b;
+  --red-soft:#f8e8e8;
+  --yellow:#f5c518;
+  --yellow-soft:#fef9e7;
+  --white:#ffffff;
+  --bg:#f7f8fc;
+  --bg2:#eef0f8;
+  --text1:#0f1629;
+  --text2:#3d4a6b;
+  --text3:#8492b0;
+  --border:#dde2f0;
+  --shadow-sm:0 1px 4px rgba(26,46,110,0.08);
+  --shadow-md:0 4px 24px rgba(26,46,110,0.12);
+  --shadow-lg:0 12px 48px rgba(26,46,110,0.18);
+  --radius:10px;
+  --radius-lg:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text1);background:#fff;overflow-x:hidden;line-height:1.6;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:68px;padding:0 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px);
+  transition:all .3s;
+}
+nav.scrolled{
+  background:var(--navy);
+  border-bottom-color:rgba(255,255,255,0.08);
+  box-shadow:0 4px 24px rgba(26,46,110,0.22);
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{
+  width:38px;height:38px;
+  background:var(--navy);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background .3s;
+}
+nav.scrolled .logo-mark{background:var(--yellow);}
+.logo-text{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:.5px;transition:color .3s;}
+nav.scrolled .logo-text{color:#fff;}
+
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-links a{
+  font-size:13.5px;font-weight:600;color:var(--text2);text-decoration:none;
+  padding:7px 14px;border-radius:7px;transition:all .2s;letter-spacing:.2px;
+}
+.nav-links a:hover{background:var(--bg);color:var(--navy);}
+nav.scrolled .nav-links a{color:rgba(255,255,255,0.75);}
+nav.scrolled .nav-links a:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-links a.active{color:var(--navy);background:var(--navy-light);}
+nav.scrolled .nav-links a.active{background:rgba(255,255,255,0.15);color:#fff;}
+
+.nav-cta{
+  background:var(--red) !important;color:#fff !important;
+  padding:8px 20px !important;border-radius:8px !important;
+  font-weight:700 !important;
+}
+nav.scrolled .nav-cta{background:var(--yellow) !important;color:var(--navy) !important;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s;}
+nav.scrolled .hamburger span{background:#fff;}
+
+.mob-menu{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:var(--navy);
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.mob-menu.open{opacity:1;pointer-events:all;}
+.mob-menu a{
+  font-family:'Sora',sans-serif;font-size:22px;font-weight:700;
+  color:rgba(255,255,255,0.8);text-decoration:none;
+  padding:14px 40px;width:80%;text-align:center;
+  border-radius:10px;transition:all .2s;letter-spacing:.5px;
+}
+.mob-menu a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;}
+
+/* ─── HERO ─── */
+#beranda{
+  min-height:100vh;
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding-top:68px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 80% 50%,rgba(204,43,43,0.18) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 90%,rgba(245,197,24,0.1) 0%,transparent 50%),
+    linear-gradient(145deg,#0d1a4a 0%,#1a2e6e 45%,#1f3580 100%);
+}
+.hero-grid-pattern{
+  position:absolute;inset:0;opacity:.04;
+  background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.hero-wrap{
+  position:relative;z-index:2;max-width:1200px;
+  margin:0 auto;padding:80px 6% 100px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.hero-left{}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.3);
+  border-radius:30px;padding:6px 16px;
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:24px;
+  animation:fadeUp .7s ease both;
+}
+.hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--yellow);display:inline-block;animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.hero-h1{
+  font-family:'Sora',sans-serif;
+  font-size:clamp(36px,4.5vw,58px);font-weight:800;
+  color:#fff;line-height:1.1;letter-spacing:-1px;
+  margin-bottom:20px;
+  animation:fadeUp .7s .15s ease both;
+}
+.hero-h1 span{color:var(--yellow);}
+.hero-h1 em{
+  display:block;font-style:normal;
+  color:rgba(255,255,255,0.45);
+  font-size:clamp(18px,2.5vw,28px);font-weight:400;
+  letter-spacing:0;margin-top:4px;
+}
+
+.hero-p{
+  font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);
+  max-width:480px;margin-bottom:36px;
+  animation:fadeUp .7s .3s ease both;
+}
+
+.hero-btns{
+  display:flex;gap:12px;flex-wrap:wrap;
+  animation:fadeUp .7s .45s ease both;
+}
+.btn-red{
+  background:var(--red);color:#fff;padding:13px 28px;
+  border-radius:9px;font-size:14px;font-weight:700;letter-spacing:.3px;
+  text-decoration:none;border:2px solid var(--red);
+  display:inline-flex;align-items:center;gap:8px;transition:all .25s;
+}
+.btn-red:hover{background:#b02020;border-color:#b02020;transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,43,43,0.4);}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,.8);padding:13px 28px;
+  border-radius:9px;font-size:14px;font-weight:600;
+  text-decoration:none;border:2px solid rgba(255,255,255,.2);
+  display:inline-flex;align-items:center;gap:8px;transition:all .25s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06);}
+
+.hero-trust{
+  margin-top:40px;padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  animation:fadeUp .7s .6s ease both;
+}
+.trust-label{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;}
+.trust-items{display:flex;gap:12px;flex-wrap:wrap;}
+.trust-item{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;padding:6px 14px;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.3px;
+}
+
+/* hero right — photo frame */
+.hero-right{
+  position:relative;
+  animation:fadeUp .7s .35s ease both;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-photo-frame{
+  position:relative;width:100%;max-width:520px;
+}
+.hero-photo-border{
+  position:absolute;top:-14px;right:-14px;bottom:14px;left:14px;
+  border:2px solid rgba(245,197,24,0.35);
+  border-radius:20px;z-index:0;
+}
+.hero-photo-img{
+  position:relative;z-index:1;
+  width:100%;height:420px;
+  object-fit:cover;object-position:center top;
+  border-radius:18px;
+  display:block;
+  box-shadow:0 24px 64px rgba(0,0,0,0.45);
+  filter:brightness(0.92) contrast(1.05) saturate(1.08);
+}
+.hero-photo-overlay{
+  position:absolute;inset:0;z-index:2;
+  border-radius:18px;
+  background:linear-gradient(180deg,transparent 45%,rgba(13,26,74,0.65) 100%);
+}
+
+/* floating stat badges on photo */
+.hero-float-stats{
+  position:absolute;z-index:3;
+  display:flex;flex-direction:column;gap:10px;
+}
+.hero-float-stats.left{left:-20px;top:50%;transform:translateY(-50%);}
+.hero-float-stats.bottom{bottom:18px;left:18px;right:18px;flex-direction:row;gap:10px;}
+
+.fstat{
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  border-radius:12px;padding:13px 16px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  min-width:130px;
+}
+.fstat-icon{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.fstat-icon.navy{background:var(--navy-light);}
+.fstat-icon.red{background:var(--red-soft);}
+.fstat-icon.yel{background:var(--yellow-soft);}
+.fstat-icon svg{width:18px;height:18px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.fstat-icon.navy svg{stroke:var(--navy);}
+.fstat-icon.red svg{stroke:var(--red);}
+.fstat-icon.yel svg{stroke:#b8860b;}
+.fstat-num{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--text1);line-height:1;}
+.fstat-lbl{font-size:11px;color:var(--text3);font-weight:500;margin-top:1px;}
+
+/* badge top-right */
+.hero-badge-cert{
+  position:absolute;top:18px;right:18px;z-index:4;
+  background:var(--yellow);border-radius:10px;
+  padding:10px 14px;text-align:center;
+  box-shadow:0 6px 20px rgba(245,197,24,0.4);
+}
+.hero-badge-cert span{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--navy);display:block;line-height:1;}
+.hero-badge-cert small{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.5px;opacity:.75;}
+
+/* scroll arrow */
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.3);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+}
+.scroll-hint svg{animation:bob 1.8s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ─── SECTION BASE ─── */
+section{scroll-margin-top:68px;}
+.section-inner{max-width:1160px;margin:0 auto;padding:0 6%;}
+.section-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.section-tag::before{content:'';width:20px;height:2px;background:var(--red);border-radius:2px;}
+.section-h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--text1);line-height:1.15;letter-spacing:-.5px;}
+.section-h2 span{color:var(--red);}
+.section-p{font-size:16px;color:var(--text2);line-height:1.75;max-width:560px;}
+
+/* ─── TENTANG ─── */
+#tentang{padding:100px 0;background:#fff;}
+.tentang-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.tentang-left .section-p{margin-top:16px;margin-bottom:28px;}
+
+.about-feat{
+  display:flex;flex-direction:column;gap:14px;margin-bottom:32px;
+}
+.feat-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px;border-radius:var(--radius);
+  background:var(--bg);border:1px solid var(--border);
+  transition:border-color .2s,box-shadow .2s;
+}
+.feat-row:hover{border-color:var(--navy);box-shadow:var(--shadow-sm);}
+.feat-icon{
+  width:40px;height:40px;border-radius:9px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--navy-light);
+}
+.feat-icon svg{width:20px;height:20px;}
+.feat-txt h4{font-size:14px;font-weight:700;color:var(--text1);margin-bottom:2px;}
+.feat-txt p{font-size:13px;color:var(--text3);line-height:1.5;}
+
+.vm-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.vm-card{
+  background:var(--bg);border-radius:var(--radius-lg);padding:24px;
+  border:1px solid var(--border);transition:all .3s;
+}
+.vm-card:hover{border-color:var(--navy);background:#fff;box-shadow:var(--shadow-md);}
+.vm-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;background:var(--navy-light);}
+.vm-card h3{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--text1);margin-bottom:6px;}
+.vm-card p{font-size:13px;color:var(--text2);line-height:1.6;}
+.vm-card.highlight{background:var(--navy);border-color:transparent;}
+.vm-card.highlight .vm-card-icon{background:rgba(255,255,255,.15);}
+.vm-card.highlight h3,.vm-card.highlight p{color:rgba(255,255,255,.9);}
+.vm-card.highlight p{color:rgba(255,255,255,.65);}
+
+/* ─── LAYANAN ─── */
+#layanan{padding:100px 0;background:var(--bg);}
+.layanan-head{text-align:center;max-width:580px;margin:0 auto 56px;}
+.layanan-head .section-tag{justify-content:center;}
+.layanan-head .section-tag::before{display:none;}
+.layanan-head .section-p{margin:14px auto 0;}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:18px;
+}
+.svc-card{
+  background:#fff;border-radius:var(--radius-lg);
+  padding:28px 24px;
+  border:1px solid var(--border);
+  transition:all .3s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--navy),var(--red));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:transparent;}
+.svc-card:hover::after{transform:scaleX(1);}
+
+.svc-icon-wrap{
+  width:52px;height:52px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;background:var(--navy-light);
+  transition:all .3s;
+}
+.svc-card:hover .svc-icon-wrap{background:var(--navy);transform:scale(1.08);}
+.svc-card:hover .svc-icon-wrap svg{stroke:#fff;}
+.svc-icon-wrap svg{width:24px;height:24px;stroke:var(--navy);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.svc-icon-wrap.red{background:var(--red-soft);}
+.svc-card:hover .svc-icon-wrap.red{background:var(--red);}
+.svc-icon-wrap.red svg{stroke:var(--red);}
+.svc-icon-wrap.yel{background:var(--yellow-soft);}
+.svc-card:hover .svc-icon-wrap.yel{background:#d4a800;}
+.svc-icon-wrap.yel svg{stroke:#c49000;}
+
+.svc-card h3{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text1);margin-bottom:8px;}
+.svc-card p{font-size:13.5px;color:var(--text2);line-height:1.65;}
+.svc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.svc-tag{background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:3px 9px;font-size:11px;font-weight:600;color:var(--text3);}
+
+/* ─── PARALLAX ─── */
+.parallax-section{
+  padding:90px 6%;
+  background:var(--navy);
+  background-attachment:fixed;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.parallax-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(204,43,43,0.25),transparent);
+}
+.par-inner{position:relative;z-index:2;max-width:700px;margin:0 auto;}
+.par-inner h2{font-family:'Sora',sans-serif;font-size:clamp(30px,4vw,48px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;}
+.par-inner h2 span{color:var(--yellow);}
+.par-inner p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px;}
+.par-stats{display:flex;justify-content:center;gap:48px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap;}
+.par-stat-num{font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:var(--yellow);display:block;}
+.par-stat-lbl{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;}
+
+/* ─── KLIEN ─── */
+#klien{padding:100px 0;background:#fff;}
+.klien-head{text-align:center;max-width:560px;margin:0 auto 56px;}
+.klien-head .section-tag{justify-content:center;}
+.klien-head .section-tag::before{display:none;}
+.klien-head .section-p{margin:14px auto 0;}
+
+.klien-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+  gap:14px;
+  margin-bottom:48px;
+}
+.klien-card{
+  background:var(--bg);border-radius:var(--radius-lg);
+  padding:24px 16px;
+  display:flex;flex-direction:column;align-items:center;
+  gap:10px;text-align:center;
+  border:1px solid var(--border);
+  transition:all .3s;
+}
+.klien-card:hover{background:#fff;border-color:var(--navy);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.klien-icon{
+  width:50px;height:50px;border-radius:12px;
+  background:var(--navy-light);display:flex;align-items:center;justify-content:center;
+  transition:background .3s;
+}
+.klien-card:hover .klien-icon{background:var(--navy);}
+.klien-icon svg{width:24px;height:24px;stroke:var(--navy);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s;}
+.klien-card:hover .klien-icon svg{stroke:#fff;}
+.klien-name{font-size:14px;font-weight:700;color:var(--text1);}
+.klien-sector{font-size:12px;color:var(--text3);}
+
+.cta-strip{
+  background:linear-gradient(135deg,var(--navy),#233a8a);
+  border-radius:var(--radius-lg);padding:40px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;
+}
+.cta-strip-text h3{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:6px;}
+.cta-strip-text p{font-size:15px;color:rgba(255,255,255,.65);}
+
+/* ─── HUBUNGI ─── */
+#hubungi{padding:100px 0;background:var(--bg);}
+.hubungi-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start;}
+.hubungi-left .section-p{margin:14px 0 32px;}
+
+.contact-items{display:flex;flex-direction:column;gap:12px;}
+.ci{
+  display:flex;align-items:flex-start;gap:14px;
+  background:#fff;border-radius:var(--radius);padding:16px 18px;
+  border:1px solid var(--border);transition:border-color .2s;
+}
+.ci:hover{border-color:var(--navy);}
+.ci-ico{
+  width:40px;height:40px;border-radius:9px;flex-shrink:0;
+  background:var(--navy-light);display:flex;align-items:center;justify-content:center;
+}
+.ci-ico svg{width:18px;height:18px;stroke:var(--navy);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.ci-lbl{font-size:11px;color:var(--text3);font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px;}
+.ci-val{font-size:14px;font-weight:600;color:var(--text1);}
+
+.contact-form-box{
+  background:#fff;border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  padding:40px;
+  box-shadow:var(--shadow-md);
+}
+.form-head{margin-bottom:28px;}
+.form-head h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--text1);}
+.form-head p{font-size:14px;color:var(--text3);margin-top:4px;}
+
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text2);margin-bottom:6px;}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:11px 14px;
+  border:1.5px solid var(--border);border-radius:8px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text1);
+  background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text3);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,46,110,.08);
+}
+.fg textarea{min-height:110px;resize:vertical;}
+
+.submit-btn{
+  width:100%;padding:13px;
+  background:var(--navy);color:#fff;border:none;border-radius:9px;
+  font-family:'Sora',sans-serif;font-size:16px;font-weight:700;letter-spacing:.3px;
+  cursor:pointer;transition:all .25s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.submit-btn:hover{background:var(--red);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,43,43,.3);}
+
+/* ─── FOOTER ─── */
+footer{background:var(--text1);color:rgba(255,255,255,.55);padding:64px 6% 0;}
+.footer-inner{max-width:1160px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.footer-logo-mark{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.footer-brand-name{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:#fff;}
+.footer-desc{font-size:13.5px;line-height:1.75;max-width:240px;}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13.5px;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--yellow);}
+.fc-row{display:flex;gap:10px;margin-bottom:12px;font-size:13.5px;align-items:flex-start;}
+.fc-row svg{width:16px;height:16px;stroke:var(--text3);stroke-width:2;fill:none;flex-shrink:0;margin-top:2px;}
+.footer-bottom{max-width:1160px;margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:8px;}
+
+/* ─── TOAST ─── */
+.toast{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  background:var(--navy);color:#fff;padding:14px 22px;border-radius:10px;
+  font-size:14px;font-weight:600;
+  border-left:4px solid var(--yellow);
+  box-shadow:var(--shadow-lg);
+  transform:translateY(60px);opacity:0;transition:all .35s;pointer-events:none;
+}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease;}
+.rv.vb{opacity:1;transform:translateY(0);}
+.rv-l{opacity:0;transform:translateX(-32px);transition:opacity .65s ease,transform .65s ease;}
+.rv-l.vb{opacity:1;transform:translateX(0);}
+.rv-r{opacity:0;transform:translateX(32px);transition:opacity .65s ease,transform .65s ease;}
+.rv-r.vb{opacity:1;transform:translateX(0);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .hero-wrap{grid-template-columns:1fr;gap:48px;}
+  .hero-right{display:flex;}
+  .hero-photo-img{height:320px;}
+  .hero-float-stats.left{display:none;}
+  .hero-photo-border{display:none;}
+  .tentang-grid{grid-template-columns:1fr;}
+  .hubungi-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:700px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .frow{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .cta-strip{flex-direction:column;padding:28px 24px;}
+  .vm-cards{grid-template-columns:1fr;}
+  .parallax-section{background-attachment:scroll;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#beranda" class="logo">
+    <div class="logo-mark">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <polygon points="11,1 20,6 20,16 11,21 2,16 2,6" fill="none" stroke="white" stroke-width="1.5"/>
+        <polygon points="11,5 17,8.5 17,13.5 11,17 5,13.5 5,8.5" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.2"/>
+        <polygon points="11,8.5 14.5,10.5 14.5,13.5 11,15.5 7.5,13.5 7.5,10.5" fill="white"/>
+      </svg>
+    </div>
+    <span class="logo-text">APUNUSA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#beranda" class="active">Beranda</a></li>
+    <li><a href="#tentang">Tentang Kami</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#klien">Klien</a></li>
+    <li><a href="#hubungi" class="nav-cta">Hubungi Kami</a></li>
+  </ul>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mob">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#beranda" onclick="closeMob()">Beranda</a>
+  <a href="#tentang" onclick="closeMob()">Tentang Kami</a>
+  <a href="#layanan" onclick="closeMob()">Layanan</a>
+  <a href="#klien" onclick="closeMob()">Klien</a>
+  <a href="#hubungi" onclick="closeMob()">Hubungi Kami</a>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- BERANDA -->
+<!-- ══════════════════════════════════════ -->
+<section id="beranda">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-badge"><i></i> General Supply &amp; Procurement</div>
+      <h1 class="hero-h1">
+        Solusi Pengadaan<br><span>Terpadu</span> untuk<br>Industri Anda
+        <em>Profesional · Tepat Waktu · Terpercaya</em>
+      </h1>
+      <p class="hero-p">APUNUSA hadir sebagai mitra strategis pengadaan barang dan jasa — melayani industri, pemerintahan, dan swasta di seluruh Indonesia dengan standar terbaik.</p>
+      <div class="hero-btns">
+        <a href="#layanan" class="btn-red">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Lihat Layanan
+        </a>
+        <a href="#hubungi" class="btn-ghost">Konsultasi Gratis</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-label">Melayani</span>
+        <div class="trust-items">
+          <span class="trust-item">Pemerintah</span>
+          <span class="trust-item">BUMN</span>
+          <span class="trust-item">Swasta</span>
+          <span class="trust-item">Industri</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-border"></div>
+        <img
+          class="hero-photo-img"
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85&fit=crop&crop=faces,top"
+          alt="Tim profesional APUNUSA berkoordinasi proyek besar"
+          onerror="this.src='https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&fit=crop&crop=faces,top'"
+        />
+        <div class="hero-photo-overlay"></div>
+
+        <!-- Badge top-right: pengalaman -->
+        <div class="hero-badge-cert">
+          <span>10+</span>
+          <small>TAHUN</small>
+        </div>
+
+        <!-- Floating stats kiri -->
+        <div class="hero-float-stats left">
+          <div class="fstat">
+            <div class="fstat-icon navy">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div class="fstat-num">50+</div>
+              <div class="fstat-lbl">Klien Aktif</div>
+            </div>
+          </div>
+          <div class="fstat">
+            <div class="fstat-icon red">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="fstat-num">150+</div>
+              <div class="fstat-lbl">Proyek Selesai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating bottom bar -->
+        <div class="hero-float-stats bottom">
+          <div class="fstat" style="flex:1">
+            <div class="fstat-icon yel">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="fstat-num">15+</div>
+              <div class="fstat-lbl">Kota Layanan</div>
+            </div>
+          </div>
+          <div class="fstat" style="flex:1">
+            <div class="fstat-icon navy">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+              <div class="fstat-num">8+</div>
+              <div class="fstat-lbl">Sektor Industri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- TENTANG KAMI -->
+<!-- ══════════════════════════════════════ -->
+<section id="tentang">
+  <div class="section-inner">
+    <div class="tentang-grid">
+      <div class="tentang-left rv-l">
+        <div class="section-tag">Tentang Kami</div>
+        <h2 class="section-h2">Mitra Pengadaan<br><span>Terpercaya</span> Anda</h2>
+        <p class="section-p">PT APUNUSA adalah perusahaan jasa pengadaan barang dan jasa (general supply) yang berpengalaman melayani kebutuhan industri, pemerintah, dan swasta di seluruh Indonesia secara profesional dan transparan.</p>
+        <div class="about-feat">
+          <div class="feat-row">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="feat-txt"><h4>Terjamin & Berlisensi</h4><p>Seluruh proses pengadaan mengikuti regulasi dan standar nasional yang berlaku.</p></div>
+          </div>
+          <div class="feat-row">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="feat-txt"><h4>Tepat Waktu</h4><p>Komitmen penuh terhadap jadwal pengiriman dan penyelesaian sesuai kontrak.</p></div>
+          </div>
+          <div class="feat-row">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="feat-txt"><h4>Harga Kompetitif</h4><p>Jaringan pemasok luas memungkinkan kami menawarkan harga terbaik di pasar.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div class="vm-cards">
+          <div class="vm-card highlight">
+            <div class="vm-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Visi Kami</h3>
+            <p>Menjadi perusahaan pengadaan terkemuka dan terpercaya di Indonesia pada 2030.</p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+            </div>
+            <h3>Misi Kami</h3>
+            <p>Memberikan solusi pengadaan terintegrasi, efisien, dan berkualitas tinggi bagi setiap klien.</p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Tim Profesional</h3>
+            <p>Didukung tenaga ahli berpengalaman di bidang procurement dan supply chain.</p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Terukur & Transparan</h3>
+            <p>Setiap proses didokumentasikan dengan baik dan dapat diaudit secara penuh.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- LAYANAN -->
+<!-- ══════════════════════════════════════ -->
+<section id="layanan">
+  <div class="section-inner">
+    <div class="layanan-head rv">
+      <div class="section-tag">Layanan Kami</div>
+      <h2 class="section-h2">Solusi Pengadaan <span>Lengkap</span></h2>
+      <p class="section-p">Dari material konstruksi hingga peralatan industri, kami siap memenuhi seluruh kebutuhan pengadaan Anda.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="15" rx="2"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Material Konstruksi</h3>
+        <p>Penyediaan material bangunan, baja, beton, pipa, dan perlengkapan konstruksi dari skala kecil hingga proyek besar.</p>
+        <div class="svc-tags"><span class="svc-tag">Material Bangunan</span><span class="svc-tag">Baja & Pipa</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap red">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+        </div>
+        <h3>Peralatan & Mesin Industri</h3>
+        <p>Pengadaan alat berat, mesin produksi, suku cadang, dan peralatan teknik dari merek terpercaya.</p>
+        <div class="svc-tags"><span class="svc-tag">Alat Berat</span><span class="svc-tag">Spare Parts</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap yel">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Perlengkapan Kelistrikan</h3>
+        <p>Supply panel listrik, kabel, trafo, dan sistem instalasi kelistrikan untuk gedung, pabrik, dan infrastruktur.</p>
+        <div class="svc-tags"><span class="svc-tag">Panel Listrik</span><span class="svc-tag">Kabel & Trafo</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Alat Pelindung Diri</h3>
+        <p>APD lengkap sesuai standar K3 nasional dan internasional — helm, sepatu safety, rompi, masker, dan lainnya.</p>
+        <div class="svc-tags"><span class="svc-tag">Standar K3</span><span class="svc-tag">Safety Gear</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap red">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Peralatan IT & Elektronik</h3>
+        <p>Komputer, server, jaringan, CCTV, dan perangkat elektronik untuk kantor, proyek, dan institusi pemerintah.</p>
+        <div class="svc-tags"><span class="svc-tag">Hardware</span><span class="svc-tag">Jaringan & CCTV</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap yel">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Logistik & Distribusi</h3>
+        <p>Layanan pengiriman ke seluruh Indonesia dengan armada memadai, tracking real-time, dan jaminan keamanan kargo.</p>
+        <div class="svc-tags"><span class="svc-tag">Pengiriman Nasional</span><span class="svc-tag">Tracking</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Furnitur & ATK Kantor</h3>
+        <p>Pengadaan meja, kursi, lemari, dan perlengkapan kantor untuk instansi pemerintah maupun swasta.</p>
+        <div class="svc-tags"><span class="svc-tag">Furnitur</span><span class="svc-tag">ATK & Interior</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="svc-icon-wrap red">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Konsultasi Pengadaan</h3>
+        <p>Jasa konsultasi strategi pengadaan, penyusunan dokumen tender, dan manajemen vendor profesional.</p>
+        <div class="svc-tags"><span class="svc-tag">Tender</span><span class="svc-tag">Vendor Mgmt</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX BANNER -->
+<div class="parallax-section">
+  <div class="par-inner rv">
+    <h2>Siap Melayani <span>Seluruh Indonesia</span></h2>
+    <p>Dari Sabang sampai Merauke, jaringan pemasok dan mitra logistik kami siap memastikan kebutuhan pengadaan Anda terpenuhi tepat waktu dan sesuai spesifikasi.</p>
+    <a href="#hubungi" class="btn-red" style="display:inline-flex;justify-content:center;">Mulai Pengadaan Sekarang</a>
+    <div class="par-stats">
+      <div><span class="par-stat-num">10+</span><div class="par-stat-lbl">Tahun Pengalaman</div></div>
+      <div><span class="par-stat-num">150+</span><div class="par-stat-lbl">Proyek Selesai</div></div>
+      <div><span class="par-stat-num">50+</span><div class="par-stat-lbl">Klien Aktif</div></div>
+      <div><span class="par-stat-num">15+</span><div class="par-stat-lbl">Kota Layanan</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- KLIEN KAMI -->
+<!-- ══════════════════════════════════════ -->
+<section id="klien">
+  <div class="section-inner">
+    <div class="klien-head rv">
+      <div class="section-tag">Klien Kami</div>
+      <h2 class="section-h2">Dipercaya Berbagai <span>Industri</span></h2>
+      <p class="section-p">Kami bangga telah melayani berbagai perusahaan dan instansi dari sektor industri, energi, pemerintahan, hingga swasta.</p>
+    </div>
+    <div class="klien-grid">
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="klien-name">Manufaktur</div><div class="klien-sector">Sektor Produksi</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="klien-name">Energi & Migas</div><div class="klien-sector">Minyak & Gas</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="klien-name">Pemerintahan</div><div class="klien-sector">Instansi Publik</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="15" rx="2"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><div class="klien-name">Konstruksi</div><div class="klien-sector">Infrastruktur</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="klien-name">Healthcare</div><div class="klien-sector">Fasilitas Kesehatan</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="klien-name">Maritim</div><div class="klien-sector">Shipping & Logistik</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 6 6 3 3 3"/><path d="M12 12c0-6 6-9 9-9"/><path d="M12 12c-4 0-7 2-9 5"/><path d="M12 12c4 0 7 2 9 5"/></svg></div><div class="klien-name">Agrikultur</div><div class="klien-sector">Pertanian & Perkebunan</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><div class="klien-name">Pertambangan</div><div class="klien-sector">Mining & Resources</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="klien-name">Pendidikan</div><div class="klien-sector">Institusi Pendidikan</div></div>
+      <div class="klien-card rv"><div class="klien-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><div class="klien-name">Perbankan</div><div class="klien-sector">Keuangan & Asuransi</div></div>
+    </div>
+    <div class="cta-strip rv">
+      <div class="cta-strip-text">
+        <h3>Bergabunglah Bersama Klien Kami</h3>
+        <p>Jadikan APUNUSA mitra pengadaan strategis perusahaan Anda hari ini.</p>
+      </div>
+      <a href="#hubungi" class="btn-red">Hubungi Kami Sekarang →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- HUBUNGI KAMI -->
+<!-- ══════════════════════════════════════ -->
+<section id="hubungi">
+  <div class="section-inner">
+    <div class="hubungi-grid">
+      <div class="rv-l">
+        <div class="section-tag">Hubungi Kami</div>
+        <h2 class="section-h2">Mari <span>Berdiskusi</span><br>Bersama Kami</h2>
+        <p class="section-p">Tim kami siap membantu menemukan solusi pengadaan terbaik. Konsultasi gratis, tanpa komitmen.</p>
+        <div class="contact-items">
+          <div class="ci">
+            <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="ci-lbl">Alamat</div><div class="ci-val">Jl. Sudirman No. 123, Jakarta Pusat 10220</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.59 5.59l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="ci-lbl">Telepon</div><div class="ci-val">+62 21 5555-2786</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ci-lbl">Email</div><div class="ci-val">info@apunusa.co.id</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><div class="ci-lbl">WhatsApp</div><div class="ci-val">+62 812-3456-7890</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="ci-lbl">Jam Operasional</div><div class="ci-val">Senin–Jumat · 08.00 – 17.00 WIB</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-box rv-r">
+        <div class="form-head">
+          <h3>Kirim Pesan kepada Kami</h3>
+          <p>Isi form di bawah, tim kami akan merespons dalam 1×24 jam.</p>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Nama Lengkap *</label><input id="fn" type="text" placeholder="Nama Anda"></div>
+          <div class="fg"><label>Perusahaan</label><input id="fc" type="text" placeholder="Nama Perusahaan"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Email *</label><input id="fe" type="email" placeholder="email@perusahaan.com"></div>
+          <div class="fg"><label>No. Telepon</label><input id="fp" type="tel" placeholder="+62 8xx-xxxx-xxxx"></div>
+        </div>
+        <div class="fg">
+          <label>Jenis Layanan</label>
+          <select id="fs">
+            <option value="">— Pilih Layanan —</option>
+            <option>Material Konstruksi</option>
+            <option>Peralatan & Mesin Industri</option>
+            <option>Perlengkapan Kelistrikan</option>
+            <option>APD & Safety</option>
+            <option>IT & Elektronik</option>
+            <option>Logistik & Distribusi</option>
+            <option>Furnitur & ATK</option>
+            <option>Konsultasi Pengadaan</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="fg"><label>Pesan / Kebutuhan *</label><textarea id="fm" placeholder="Deskripsikan kebutuhan pengadaan Anda..."></textarea></div>
+        <button class="submit-btn" onclick="sendForm()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Kirim Pesan
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-logo-mark">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><polygon points="11,1 20,6 20,16 11,21 2,16 2,6" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/><polygon points="11,5 17,8.5 17,13.5 11,17 5,13.5 5,8.5" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/><polygon points="11,8.5 14.5,10.5 14.5,13.5 11,15.5 7.5,13.5 7.5,10.5" fill="rgba(255,255,255,.7)"/></svg>
+          </div>
+          <span class="footer-brand-name">APUNUSA</span>
+        </div>
+        <p class="footer-desc">Mitra pengadaan barang dan jasa terpercaya untuk industri, pemerintah, dan swasta di seluruh Indonesia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#klien">Klien Kami</a></li>
+          <li><a href="#hubungi">Hubungi Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Material Konstruksi</a></li>
+          <li><a href="#layanan">Alat Industri</a></li>
+          <li><a href="#layanan">Kelistrikan</a></li>
+          <li><a href="#layanan">APD & Safety</a></li>
+          <li><a href="#layanan">IT & Elektronik</a></li>
+          <li><a href="#layanan">Logistik</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <div class="fc-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Jl. Sudirman No. 123, Jakarta Pusat</span></div>
+        <div class="fc-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.59 5.59l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+62 21 5555-2786</span></div>
+        <div class="fc-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@apunusa.co.id</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 PT APUNUSA. Seluruh hak dilindungi.</span>
+      <span style="color:rgba(255,255,255,.25)">Jasa Pengadaan & General Supply Indonesia</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ Pesan berhasil dikirim! Kami akan menghubungi Anda segera.</div>
+
+<script>
+const nav = document.getElementById('nav');
+const sections = ['beranda','tentang','layanan','klien','hubungi'];
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  let cur = 'beranda';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 90) cur = id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+  });
+});
+
+document.getElementById('hbg').onclick = () => document.getElementById('mob').classList.add('open');
+document.getElementById('mobClose').onclick = closeMob;
+function closeMob(){ document.getElementById('mob').classList.remove('open'); }
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 66, behavior: 'smooth' }); }
+  });
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('vb'), i * 70);
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => obs.observe(el));
+
+function sendForm(){
+  const name = document.getElementById('fn').value.trim();
+  const email = document.getElementById('fe').value.trim();
+  const msg = document.getElementById('fm').value.trim();
+  if (!name || !email || !msg) { alert('Mohon lengkapi nama, email, dan pesan Anda.'); return; }
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+  ['fn','fc','fe','fp','fs','fm'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+}
+</script>
+</body>
+</html>
