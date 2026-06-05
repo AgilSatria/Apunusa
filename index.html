@@ -1,5 +1,7 @@
 <!-- force redeploy -->
 
+<!-- force redeploy -->
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -86,12 +88,12 @@ nav.scrolled .nav-cta{background:var(--yellow) !important;color:var(--navy) !imp
 nav.scrolled .hamburger span{background:#fff;}
 
 .mob-menu{
-  display:none;position:fixed;inset:0;z-index:999;
+  position:fixed;inset:0;z-index:999;
   background:var(--navy);
-  flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
   opacity:0;pointer-events:none;transition:opacity .3s;
 }
-.mob-menu.open{opacity:1;pointer-events:all;}
+.mob-menu.open{display:flex;opacity:1;pointer-events:all;}
 .mob-menu a{
   font-family:'Sora',sans-serif;font-size:22px;font-weight:700;
   color:rgba(255,255,255,0.8);text-decoration:none;
@@ -1022,9 +1024,19 @@ window.addEventListener('scroll', () => {
   });
 });
 
-document.getElementById('hbg').onclick = () => document.getElementById('mob').classList.add('open');
+const mob = document.getElementById('mob');
+const hbg = document.getElementById('hbg');
+
+hbg.onclick = () => {
+  const isOpen = mob.classList.toggle('open');
+  hbg.setAttribute('aria-expanded', isOpen);
+};
+
 document.getElementById('mobClose').onclick = closeMob;
-function closeMob(){ document.getElementById('mob').classList.remove('open'); }
+function closeMob(){
+  mob.classList.remove('open');
+  hbg.setAttribute('aria-expanded', false);
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
